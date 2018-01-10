@@ -12,21 +12,41 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            rb.AddForce(0, 0, moveSpeed, ForceMode.Acceleration);
+            moveForward();
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            rb.AddForce(-moveSpeed, 0,0, ForceMode.Acceleration);
+            turnLeft();
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            rb.AddForce(0, 0, -moveSpeed, ForceMode.Acceleration);
+            moveBackward();
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            rb.AddForce(moveSpeed, 0, 0, ForceMode.Acceleration);
+            turnRight();
         }
+    }
+
+    void moveForward()
+    {
+        transform.Translate(Vector3.forward);
+    }
+
+    void moveBackward()
+    {
+        transform.Translate(Vector3.back);
+    }
+
+    void turnRight()
+    {
+        transform.Rotate(Vector3.up, 90);
+    }
+
+    void turnLeft()
+    {
+        transform.Rotate(Vector3.up, -90);
     }
 }
