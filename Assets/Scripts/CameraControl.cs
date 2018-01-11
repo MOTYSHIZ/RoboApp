@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour {
 
     public GameObject target;
-    private float speed = 10.0f;
     private Vector3 point;
 
 	// Use this for initialization
