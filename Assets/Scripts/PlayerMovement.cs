@@ -30,22 +30,22 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void moveForward()
+    public void moveForward()
     {
         transform.Translate(Vector3.forward);
     }
 
-    void moveBackward()
+    public void moveBackward()
     {
         transform.Translate(Vector3.back);
     }
 
-    void turnRight()
+    public void turnRight()
     {
         transform.Rotate(Vector3.up, 90);
     }
 
-    void turnLeft()
+    public void turnLeft()
     {
         transform.Rotate(Vector3.up, -90);
     }
