@@ -20,7 +20,20 @@ public class main_menu : MonoBehaviour {
         SceneManager.LoadScene(Application.loadedLevel);
     }
 
+    public void GameMode()
+    {
+        SceneManager.LoadScene("GameMode", LoadSceneMode.Single);
+    }
 
+    public void StoryMenu()
+    {
+        SceneManager.LoadScene("Story", LoadSceneMode.Single);
+    }
+
+    public void ChallMenu()
+    {
+        SceneManager.LoadScene("Challenge", LoadSceneMode.Single);
+    }
 }
 
   
