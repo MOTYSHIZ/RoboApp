@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -629,6 +629,8 @@ GameObject:
   - component: {fileID: 689986397}
   - component: {fileID: 689986396}
   - component: {fileID: 689986395}
+  - component: {fileID: 689986401}
+  - component: {fileID: 689986402}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -642,12 +644,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 689986394}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2daf2df39def6104ea71c02299717ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 50
 --- !u!54 &689986396
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -730,6 +731,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &689986401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 689986394}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdd3576aa631ec48887e149beb7d511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &689986402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 689986394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b288f26c9b23d45ab82ca4048a97d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &724724844
 GameObject:
   m_ObjectHideFlags: 0
