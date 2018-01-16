@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
     Rigidbody rb;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         rb = GetComponent<Rigidbody>();
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (Input.GetKeyDown(KeyCode.W))
         {
             moveForward();

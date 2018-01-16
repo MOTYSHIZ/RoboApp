@@ -18,8 +18,9 @@ public class PlayerMovementAlt : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             //moveForward();
-            StartCoroutine(MoveForwardLerp(0.3f));
+            StartCoroutine(MoveForwardLerp(0.4f));
         }
+        
         if (Input.GetKeyDown(KeyCode.A))
         {
             //turnLeft();
@@ -27,7 +28,8 @@ public class PlayerMovementAlt : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            moveBackward();
+            //moveBackward();
+            StartCoroutine(MoveBackwardLerp(0.4f));
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -38,9 +40,23 @@ public class PlayerMovementAlt : MonoBehaviour
 
     IEnumerator MoveForwardLerp(float inTime)
     {
+
         var fromPosition = transform.position;
         //var toPosition = Quaternion.Euler(transform.eulerAngles + positions);
         var toPosition = transform.position - Vector3.forward;
+        for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
+        {
+            transform.position = Vector3.Slerp(fromPosition, toPosition, t);
+            yield return null;
+        }
+    }
+
+    IEnumerator MoveBackwardLerp(float inTime)
+    {
+
+        var fromPosition = transform.position;
+        //var toPosition = Quaternion.Euler(transform.eulerAngles + positions);
+        var toPosition = transform.position + Vector3.forward;
         for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
         {
             transform.position = Vector3.Slerp(fromPosition, toPosition, t);
