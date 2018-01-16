@@ -34,6 +34,7 @@ public class CameraControl : MonoBehaviour
 
     IEnumerator RotateMe(int direction, float inTime)
     {
+        //Left
         if (direction == 1)
         {
             for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
@@ -43,6 +44,7 @@ public class CameraControl : MonoBehaviour
                 yield return null;
             }
         }
+        //Right
         else if (direction == -1) {
             for (var t = 0f; t > -1; t -= Time.deltaTime / inTime)
             {

@@ -18,11 +18,12 @@ public class PlayerMovementAlt : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             //moveForward();
-            StartCoroutine(Move(0.8f));
+            StartCoroutine(MoveForwardLerp(0.3f));
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            turnLeft();
+            //turnLeft();
+            StartCoroutine(TurnLerp(Vector3.up * -90, 0.8f));
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -30,11 +31,12 @@ public class PlayerMovementAlt : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            turnRight();
+            //turnRight();
+            StartCoroutine(TurnLerp(Vector3.up * 90, 0.8f));
         }
     }
 
-    IEnumerator Move(float inTime)
+    IEnumerator MoveForwardLerp(float inTime)
     {
         var fromPosition = transform.position;
         //var toPosition = Quaternion.Euler(transform.eulerAngles + positions);
@@ -42,6 +44,18 @@ public class PlayerMovementAlt : MonoBehaviour
         for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
         {
             transform.position = Vector3.Slerp(fromPosition, toPosition, t);
+            yield return null;
+        }
+    }
+
+    IEnumerator TurnLerp(Vector3 byAngles, float inTime)
+    {
+        var fromAngle = transform.rotation;
+        var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
+        for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
+        {
+            transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
+
             yield return null;
         }
     }
