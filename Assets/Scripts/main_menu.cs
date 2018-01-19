@@ -20,7 +20,7 @@ public class main_menu : MonoBehaviour {
         SceneManager.LoadScene("TimedMovement", LoadSceneMode.Single);            //Load Level one
     }
 
-    public void Restartscean()                                              //Reloads level
+    public void Restartscene()                                              //Reloads level
     {
         SceneManager.LoadScene(Application.loadedLevel);                    //load Restart
     }
