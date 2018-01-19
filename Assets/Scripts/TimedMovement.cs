@@ -5,15 +5,13 @@ using UnityEngine.UI;
 
 public class TimedMovement : MonoBehaviour
 {
-    LinkedList<int> commandLinkedList = new LinkedList<int>();
+    LinkedList<Vector2> commandLinkedList = new LinkedList<Vector2>();
     public CommandQVisual commandQVisual;
     public InputField inputField;
+    public Dropdown dropDown;
 
     Rigidbody rb;
     public float speed = 50;
-
-    float lastTime = 0f;
-    float inputTime = 0f;
 
 	// Use this for initialization
 	void Start ()
@@ -24,43 +22,61 @@ public class TimedMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(Time.time > lastTime + inputTime)
-        {
-
-        }
     }
 
-    IEnumerator moveForward()
+    IEnumerator moveForward(float inputTime)
     {
-        while(true)
-        {
-            int inputTime = 0;
-            System.Int32.TryParse(inputField.text, out inputTime);
+        float lastTime = Time.time;
 
+        while(Time.time < lastTime + inputTime)
+        {
+            if(rb.velocity.sqrMagnitude < 400) rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
             yield return new WaitForEndOfFrame();
         }
     }
 
-    public void moveBackward()
+    IEnumerator moveBackward(float inputTime)
     {
-        rb.AddRelativeForce(Vector3.back * speed, ForceMode.Force);
+        float lastTime = Time.time;
+
+        while (Time.time < lastTime + inputTime)
+        {
+            if (rb.velocity.sqrMagnitude < 400) rb.AddRelativeForce(Vector3.back * speed, ForceMode.Force);
+            yield return new WaitForEndOfFrame();
+        }
     }
 
-    public void turnRight()
+    IEnumerator turnRight(float inputTime)
     {
-        rb.AddRelativeTorque(0, 10, 0, ForceMode.Force);
+        float lastTime = Time.time;
+
+        while (Time.time < lastTime + inputTime)
+        {
+            if (rb.angularVelocity.sqrMagnitude < 20) rb.AddRelativeTorque(0, 10, 0, ForceMode.Force); ;
+            yield return new WaitForEndOfFrame();
+        }
     }
 
-    public void turnLeft()
+    IEnumerator turnLeft(float inputTime)
     {
-        rb.AddRelativeTorque(0,-10, 0,ForceMode.Force);
-        
+        float lastTime = Time.time;
+
+        while (Time.time < lastTime + inputTime)
+        {
+            if (rb.angularVelocity.sqrMagnitude < 20) rb.AddRelativeTorque(0, -10, 0, ForceMode.Force);
+            yield return new WaitForEndOfFrame();
+        }
     }
 
-    public void queueMove(int commandType)
+    public void queueMove()
     {
-        commandLinkedList.AddLast(new LinkedListNode<int>(commandType));
+        int commandType = dropDown.value;
+        float inputTime = 0;
+        float.TryParse(inputField.text, out inputTime);
+
+        commandLinkedList.AddLast(new Vector2(dropDown.value, inputTime));
         commandQVisual.addIconVisual(commandType);
+        Debug.Log(inputTime);
     }
 
     public void runCommand()
@@ -72,28 +88,29 @@ public class TimedMovement : MonoBehaviour
     {
         while (commandLinkedList.Count > 0)
         {
-            int currentCommand = commandLinkedList.First.Value;
+            int currentCommand = (int)commandLinkedList.First.Value.x;
+            float inputTime = commandLinkedList.First.Value.y;
             commandLinkedList.RemoveFirst();
             commandQVisual.removeFirstIconVisual();
 
             if (currentCommand == 0)
             {
-                StartCoroutine(moveForward());
+                StartCoroutine(moveForward(inputTime));
             }
             if (currentCommand == 1)
             {
-                moveBackward();
+                StartCoroutine(moveBackward(inputTime));
             }
             if (currentCommand == 2)
             {
-                turnLeft();
+                StartCoroutine(turnLeft(inputTime));
             }
             if (currentCommand == 3)
             {
-                turnRight();
+                StartCoroutine(turnRight(inputTime));
             }
 
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(inputTime);
         }
     }
 }
