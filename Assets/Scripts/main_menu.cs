@@ -15,6 +15,11 @@ public class main_menu : MonoBehaviour {
         SceneManager.LoadScene("Level01", LoadSceneMode.Single);            //Load Level one
     }
 
+    public void timedMovement()                                                 //Runs level 1
+    {
+        SceneManager.LoadScene("TimedMovement", LoadSceneMode.Single);            //Load Level one
+    }
+
     public void Restartscean()                                              //Reloads level
     {
         SceneManager.LoadScene(Application.loadedLevel);                    //load Restart
