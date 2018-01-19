@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 689986394}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2daf2df39def6104ea71c02299717ecf, type: 3}
   m_Name: 
@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 689986394}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01bf7530c30331a41841f19d68d35b70, type: 3}
   m_Name: 
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   moveSpeed: 1
   start: {fileID: 0}
   end: {fileID: 0}
-  commandQVisual: {fileID: 0}
+  commandQVisual: {fileID: 2137521112}
 --- !u!1 &724724844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,7 +1772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15c6d9d35c9c754fad5f3ab62ce72d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 689986394}
 --- !u!1 &1002777234
 GameObject:
   m_ObjectHideFlags: 0
@@ -3971,7 +3971,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.719628, y: 0.000043057047}
+  m_AnchoredPosition: {x: 4.719628, y: 0.000051833813}
   m_SizeDelta: {x: -15, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2137521111
@@ -3998,7 +3998,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd07399ab95cb7e48b53378a3d9eb805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commandIcons: []
+  commandIcons:
+  - {fileID: 1423862646612386, guid: 5585d12d58608f94f9763aab60d12914, type: 2}
+  - {fileID: 1879939032389724, guid: d160d0f7873eee2439a3f5f27831984e, type: 2}
+  - {fileID: 1489679357283112, guid: 1ac50b9229e04f34cad61cea0bda8c7e, type: 2}
+  - {fileID: 1166732893875468, guid: a3e7690098cc54847b91966f3bb29a4c, type: 2}
 --- !u!114 &2137521113
 MonoBehaviour:
   m_ObjectHideFlags: 0
