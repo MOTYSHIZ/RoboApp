@@ -18,13 +18,14 @@ public class slotCon : MonoBehaviour, IDropHandler
         }
     }
 
-    public object itemDrag { get; private set; }
+    #region idropHandler implementation
 
     public void OnDrop(PointerEventData eventData)
     {
         if (!item)
         {
-            //DragHandler.itemDrag.transform.SetPartent(transform); 
+            Drager.item.transform.SetParent(transform);
         }
     }
+    #endregion
 }

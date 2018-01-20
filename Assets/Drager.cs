@@ -2,20 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Drager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 
-    public static GameObject itemDrag;
-    Vector3 startp;    Transform startPar;
+    public static GameObject item;
+
+    Transform startParent;
+    Vector3 startp;
+    bool start = true;
+    //sprite sprite
 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        itemDrag = gameObject;
+        item = gameObject;
         startp = transform.position;
-        startPar = transform.parent;
+        startParent = transform.parent;
+
         GetComponent<CanvasGroup>().blocksRaycasts = false;
+        item.GetComponent<LayoutElement>().ignoreLayout = true;
+        item.transform.SetParent(item.transform.parent.parent);
+
 
     }
 
@@ -26,11 +35,14 @@ public class Drager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        itemDrag = null;
-        GetComponent<CanvasGroup>().blocksRaycasts = true;
-        if (transform.parent != startPar)
+        item = null;
+        //transform.position = startp;
+        if (transform.parent== startParent)
         {
             transform.position = startp;
         }
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+        item.GetComponent<LayoutElement>().ignoreLayout = false;
     }
 }
