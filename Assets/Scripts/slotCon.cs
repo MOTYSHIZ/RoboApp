@@ -24,7 +24,8 @@ public class slotCon : MonoBehaviour, IDropHandler
     {
         if (!item)
         {
-            Drager.item.transform.SetParent(transform);
+            GameObject clone = Instantiate(Drager.item, Drager.item.transform.position, Quaternion.identity);
+            clone.transform.SetParent(transform, true);
         }
     }
     #endregion

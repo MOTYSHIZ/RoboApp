@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Drager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-
     public static GameObject item;
 
     Transform startParent;
@@ -14,12 +13,14 @@ public class Drager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
     bool start = true;
     //sprite sprite
 
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         item = gameObject;
+
+        //Reset Draggable to initial position
         startp = transform.position;
         startParent = transform.parent;
+
 
         GetComponent<CanvasGroup>().blocksRaycasts = false;
         item.GetComponent<LayoutElement>().ignoreLayout = true;
@@ -35,14 +36,14 @@ public class Drager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        item = null;
-        //transform.position = startp;
-        if (transform.parent== startParent)
+        if (transform.parent == startParent.parent)
         {
             transform.position = startp;
+            transform.SetParent(startParent.transform,true);
         }
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 
         item.GetComponent<LayoutElement>().ignoreLayout = false;
+        item = null;
     }
 }
