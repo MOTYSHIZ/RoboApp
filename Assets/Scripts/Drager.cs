@@ -7,11 +7,17 @@ using UnityEngine.UI;
 public class Drager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public static GameObject item;
+    //public GameObject forward;
 
+    //GameObject Forwardclone;
     Transform startParent;
     Vector3 startp;
     bool start = true;
-    //sprite sprite
+
+
+   
+
+
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -38,6 +44,7 @@ public class Drager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
     {
         if (transform.parent == startParent.parent)
         {
+
             transform.position = startp;
             transform.SetParent(startParent.transform,true);
         }
