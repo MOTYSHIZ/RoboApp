@@ -11,19 +11,20 @@ public class LerpShadow : MonoBehaviour {
     private float duration = 1.5f;
 
     private float time = 0.1f;
+    
 
     // Use this for initialization
     void Start()
     {
         //rb = GetComponent<Rigidbody>();
         startPos = transform.position;
-        endPos = GameObject.Find("Invisible Marker").transform.position;
+        //endPos = GameObject.Find("Invisible Marker").transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        endPos = GameObject.Find("Invisible Marker").transform.position;
+        //endPos = GameObject.Find("Invisible Marker").transform.position;
         //lerp += Time.deltaTime / duration;
         
         if (Input.GetKeyDown(KeyCode.W))
@@ -46,7 +47,7 @@ public class LerpShadow : MonoBehaviour {
 
     public void moveForward()
     {
-        //transform.Translate(Vector3.forward);
+        transform.Translate(Vector3.forward);
         transform.position = Vector3.Lerp(startPos, endPos, time * Time.deltaTime);
     }
 
