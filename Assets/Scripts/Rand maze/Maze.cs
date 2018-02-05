@@ -10,15 +10,10 @@ public class Maze : MonoBehaviour {
 
     private MazeCell[,] cells;              //set an arry for ....
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public float generationStepDelay;
+
+    public IntVector2 size;
+
 
     public IntVector2 RandomCoordinates
     {
@@ -36,9 +31,6 @@ public class Maze : MonoBehaviour {
     }
 
 
-    public float generationStepDelay;
-
-    public IntVector2 size;
 
     public IEnumerator Generate ()                     //generate the floor
     {
@@ -68,5 +60,18 @@ public class Maze : MonoBehaviour {
         newCell.transform.parent = transform;
         newCell.transform.localPosition = new Vector3(coordinates.x - sizeX * 0.5f + 0.5f, 0f, coordinates.z - sizeZ * 0.5f + 0.5f);
 
+    }
+
+    public IntVector2 RandomCoordinates     //to make create cell and generate  work
+    {
+        get
+        {
+            return new IntVector2(Random.Range(0, size.x), Random.Range(0, size.z));
+        }
+    }
+
+    public bool ContainsCoordinates (IntVector2 coordinate)
+    {
+        return coordinate.x >= 0 && coordinate.x < size.x && coordinate.z >= 0 && coordinate.z < size.z;
     }
 }

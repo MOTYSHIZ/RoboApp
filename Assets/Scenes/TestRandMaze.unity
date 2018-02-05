@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeX: 20
   sizeZ: 20
-  cellPrefab: {fileID: 114383811810751308, guid: d4aa140ec95aed24fad36bbef696a4d1,
+  cellPrefab: {fileID: 114096796974451536, guid: d4aa140ec95aed24fad36bbef696a4d1,
     type: 2}
   generationStepDelay: 0.01
   size:

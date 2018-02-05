@@ -24,7 +24,8 @@ public class GameManage : MonoBehaviour {
     private void BeginGame()                // when the maze starts there will be a randomly generated maze avaliable
     {
         mazeInstance = Instantiate(mazePrefab) as Maze;
-       StartCoroutine (mazeInstance.Generate());
+        StartCoroutine(mazeInstance.Generate());
+
     }
 
     private void RestartGame()              // when the game restarts, it should destroy the last maze then go back to begingame
