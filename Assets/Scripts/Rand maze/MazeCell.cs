@@ -15,4 +15,5 @@ public class MazeCell : MonoBehaviour {
 	void Update () {
 		
 	}
+
 }

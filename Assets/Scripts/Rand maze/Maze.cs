@@ -15,19 +15,18 @@ public class Maze : MonoBehaviour {
     public IntVector2 size;
 
 
-    public IntVector2 RandomCoordinates
+
+    public IntVector2 RandomCoordinates     //to make create cell and generate  work
     {
         get
         {
             return new IntVector2(Random.Range(0, size.x), Random.Range(0, size.z));
         }
-
     }
 
-    public bool ContainsCoordinates (IntVector2 coordinate)
+    public bool ContainsCoordinates(IntVector2 coordinate)
     {
         return coordinate.x >= 0 && coordinate.x < size.x && coordinate.z >= 0 && coordinate.z < size.z;
-
     }
 
 
@@ -45,14 +44,10 @@ public class Maze : MonoBehaviour {
         }
        
     }
-
-
-
-
+    
 
     private void CreateCell (IntVector2 coordinates)
     {
-
         MazeCell newCell = Instantiate(cellPrefab) as MazeCell;
         cells[coordinates.x, coordinates.z] = newCell;
         newCell.coordinates = coordinates;
@@ -62,16 +57,5 @@ public class Maze : MonoBehaviour {
 
     }
 
-    public IntVector2 RandomCoordinates     //to make create cell and generate  work
-    {
-        get
-        {
-            return new IntVector2(Random.Range(0, size.x), Random.Range(0, size.z));
-        }
-    }
-
-    public bool ContainsCoordinates (IntVector2 coordinate)
-    {
-        return coordinate.x >= 0 && coordinate.x < size.x && coordinate.z >= 0 && coordinate.z < size.z;
-    }
+   
 }
