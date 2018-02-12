@@ -15,5 +15,18 @@ public class MazeCell : MonoBehaviour {
 	void Update () {
 		
 	}
+    //Here we will creat a way get edge method so that we can boud them to our quad
+    private MazeCellEdge[] edges = new MazeCellEdge[MazeDirection.Count];
+
+    public MazeCellEdge (MazeDirection direciont)
+    {
+        return edges[(int)direciont];
+
+    }
+
+    public void SetEdge (MazeDirection direction, MazeCell edge)
+    {
+        edges[(int)direction] = edge;
+    }
 
 }

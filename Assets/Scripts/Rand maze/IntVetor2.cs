@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct IntVector2
  {
+    //this set of code is finding the locations to then place the next setof quads
         public int x, z;
         public IntVector2 (int x, int z)
         {
