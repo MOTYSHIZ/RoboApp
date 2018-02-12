@@ -286,14 +286,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b92b4812206a749bbf639fd157cbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeX: 100
-  sizeZ: 100
+  size:
+    x: 100
+    z: 100
+  generationStepDelay: 0.01
   cellPrefab: {fileID: 114096796974451536, guid: d4aa140ec95aed24fad36bbef696a4d1,
     type: 2}
-  generationStepDelay: 1
-  size:
-    x: 0
-    z: 0
+  passagePrefab: {fileID: 114990669227689396, guid: f0b1e3cb5f996c943b0e47230c025c9c,
+    type: 2}
+  wallPrefab: {fileID: 114729367583674078, guid: b6ed0eef957628546bc6c22a89462ee9,
+    type: 2}
 --- !u!4 &908674602
 Transform:
   m_ObjectHideFlags: 0

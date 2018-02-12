@@ -6,25 +6,17 @@ public class MazeCell : MonoBehaviour {
 
     public IntVector2 coordinates;
     public IntVector2 size;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+  
     //Here we will creat a way get edge method so that we can boud them to our quad
-    private MazeCellEdge[] edges = new MazeCellEdge[MazeDirection.Count];
+    private MazeCellEdge[] edges = new MazeCellEdge[MazeDirections.Count];
 
-    public MazeCellEdge (MazeDirection direciont)
+    public MazeCellEdge GetEdge (MazeDirection direciont)
     {
         return edges[(int)direciont];
 
     }
 
-    public void SetEdge (MazeDirection direction, MazeCell edge)
+    public void SetEdge (MazeDirection direction, MazeCellEdge edge)
     {
         edges[(int)direction] = edge;
     }
