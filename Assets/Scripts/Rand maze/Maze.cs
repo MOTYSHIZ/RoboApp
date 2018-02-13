@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Maze : MonoBehaviour {
+public class Maze : MonoBehaviour
+{
 
-    
-    private MazeCell[,] cells;              //set an arry for size of room
     public IntVector2 size;
 
-    public float generationStepDelay;       //how long it takes to create
-    public MazeCell cellPrefab;             //grab the cellPrefab
-    //adding code for wall and passage prefabs
+    public MazeCell cellPrefab;
+
+    public float generationStepDelay;
+
     public MazePassage passagePrefab;
     public MazeWall wallPrefab;
 
-    public IntVector2 RandomCoordinates     //to make create cell and generate  work
+    private MazeCell[,] cells;
+
+    public IntVector2 RandomCoordinates
     {
         get
         {
@@ -28,15 +30,15 @@ public class Maze : MonoBehaviour {
         return coordinate.x >= 0 && coordinate.x < size.x && coordinate.z >= 0 && coordinate.z < size.z;
     }
 
-    public MazeCell GetCell (IntVector2 coordinates)
+    public MazeCell GetCell(IntVector2 coordinates)
     {
         return cells[coordinates.x, coordinates.z];
     }
 
-    public IEnumerator Generate ()                     //generate the floor
+    public IEnumerator Generate()
     {
         WaitForSeconds delay = new WaitForSeconds(generationStepDelay);
-        cells = new MazeCell[size.x, size.z];     //set the arry for the size of the room
+        cells = new MazeCell[size.x, size.z];
         List<MazeCell> activeCells = new List<MazeCell>();
         DoFirstGenerationStep(activeCells);
         while (activeCells.Count > 0)
@@ -44,34 +46,12 @@ public class Maze : MonoBehaviour {
             yield return delay;
             DoNextGenerationStep(activeCells);
         }
-       
     }
 
-
-
-
-    private MazeCell CreateCell(IntVector2 coordinates)
-    {
-        MazeCell newCell = Instantiate(cellPrefab) as MazeCell;
-        cells[coordinates.x, coordinates.z] = newCell;
-        newCell.coordinates = coordinates;
-        newCell.name = "Maze Cell " + coordinates.x + ", " + coordinates.z;
-        newCell.transform.parent = transform;
-        newCell.transform.localPosition =
-            new Vector3(coordinates.x - size.x * 0.5f + 0.5f, 0f, coordinates.z - size.z * 0.5f + 0.5f);
-        return newCell;
-    }
-
-
-
-
-
-
-    private void DoFirstGenerationStep (List<MazeCell> activeCells)
+    private void DoFirstGenerationStep(List<MazeCell> activeCells)
     {
         activeCells.Add(CreateCell(RandomCoordinates));
     }
-
 
     private void DoNextGenerationStep(List<MazeCell> activeCells)
     {
@@ -79,7 +59,7 @@ public class Maze : MonoBehaviour {
         MazeCell currentCell = activeCells[currentIndex];
         MazeDirection direction = MazeDirections.RandomValue;
         IntVector2 coordinates = currentCell.coordinates + direction.ToIntVector2();
-        if (ContainsCoordinates(coordinates) && GetCell(coordinates) == null)
+        if (ContainsCoordinates(coordinates))
         {
             MazeCell neighbor = GetCell(coordinates);
             if (neighbor == null)
@@ -101,9 +81,18 @@ public class Maze : MonoBehaviour {
         }
     }
 
+    private MazeCell CreateCell(IntVector2 coordinates)
+    {
+        MazeCell newCell = Instantiate(cellPrefab) as MazeCell;
+        cells[coordinates.x, coordinates.z] = newCell;
+        newCell.coordinates = coordinates;
+        newCell.name = "Maze Cell " + coordinates.x + ", " + coordinates.z;
+        newCell.transform.parent = transform;
+        newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0.5f, 0f, coordinates.z - size.z * 0.5f + 0.5f);
+        return newCell;
+    }
 
-
-    private void CreatePassage (MazeCell cell, MazeCell otherCell, MazeDirection direction)
+    private void CreatePassage(MazeCell cell, MazeCell otherCell, MazeDirection direction)
     {
         MazePassage passage = Instantiate(passagePrefab) as MazePassage;
         passage.Initialize(cell, otherCell, direction);
@@ -121,6 +110,5 @@ public class Maze : MonoBehaviour {
             wall.Initialize(otherCell, cell, direction.GetOpposite());
         }
     }
-
-
 }
+

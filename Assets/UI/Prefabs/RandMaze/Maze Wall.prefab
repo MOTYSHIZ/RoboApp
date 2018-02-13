@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4321448395394478}
   - component: {fileID: 114729367583674078}
   m_Layer: 0
-  m_Name: MazeWall
+  m_Name: Maze Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

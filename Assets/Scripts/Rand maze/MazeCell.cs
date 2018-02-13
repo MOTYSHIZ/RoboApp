@@ -5,7 +5,6 @@ using UnityEngine;
 public class MazeCell : MonoBehaviour {
 
     public IntVector2 coordinates;
-    public IntVector2 size;
   
     //Here we will creat a way get edge method so that we can boud them to our quad
     private MazeCellEdge[] edges = new MazeCellEdge[MazeDirections.Count];

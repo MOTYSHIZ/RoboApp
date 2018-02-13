@@ -289,9 +289,9 @@ MonoBehaviour:
   size:
     x: 100
     z: 100
-  generationStepDelay: 0.01
   cellPrefab: {fileID: 114096796974451536, guid: d4aa140ec95aed24fad36bbef696a4d1,
     type: 2}
+  generationStepDelay: 0.01
   passagePrefab: {fileID: 114990669227689396, guid: f0b1e3cb5f996c943b0e47230c025c9c,
     type: 2}
   wallPrefab: {fileID: 114729367583674078, guid: b6ed0eef957628546bc6c22a89462ee9,
@@ -303,21 +303,21 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 908674600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -489.0742, y: -469.08313, z: 357.44275}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &981381198
+--- !u!1 &1087224682
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 981381200}
-  - component: {fileID: 981381199}
+  - component: {fileID: 1087224684}
+  - component: {fileID: 1087224683}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -325,29 +325,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &981381199
+--- !u!114 &1087224683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 981381198}
+  m_GameObject: {fileID: 1087224682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d66f71adf8d8b4f8d7b4a3c3a1412b, type: 3}
+  m_Script: {fileID: 11500000, guid: 31004356e0c9f7046b98550204475c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mazePrefab: {fileID: 114393659457101740, guid: 6c889750511e91a4e923363d6aafc310,
-    type: 2}
---- !u!4 &981381200
+  mazePrefab: {fileID: 908674601}
+--- !u!4 &1087224684
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 981381198}
+  m_GameObject: {fileID: 1087224682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -489.0742, y: -469.08313, z: 357.44275}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
