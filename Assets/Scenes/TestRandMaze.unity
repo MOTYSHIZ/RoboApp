@@ -287,8 +287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size:
-    x: 100
-    z: 100
+    x: 20
+    z: 20
   cellPrefab: {fileID: 114096796974451536, guid: d4aa140ec95aed24fad36bbef696a4d1,
     type: 2}
   generationStepDelay: 0.01
