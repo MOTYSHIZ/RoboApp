@@ -287,15 +287,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size:
-    x: 20
-    z: 20
+    x: 10
+    z: 10
   cellPrefab: {fileID: 114096796974451536, guid: d4aa140ec95aed24fad36bbef696a4d1,
     type: 2}
   generationStepDelay: 0.01
   passagePrefab: {fileID: 114990669227689396, guid: f0b1e3cb5f996c943b0e47230c025c9c,
     type: 2}
-  wallPrefab: {fileID: 114729367583674078, guid: b6ed0eef957628546bc6c22a89462ee9,
-    type: 2}
+  wallPrefabs:
+  - {fileID: 114729367583674078, guid: b6ed0eef957628546bc6c22a89462ee9, type: 2}
+  - {fileID: 114729367583674078, guid: b6ed0eef957628546bc6c22a89462ee9, type: 2}
+  - {fileID: 114729367583674078, guid: b6ed0eef957628546bc6c22a89462ee9, type: 2}
+  - {fileID: 114729367583674078, guid: b6ed0eef957628546bc6c22a89462ee9, type: 2}
+  - {fileID: 114651926383770738, guid: 77e13cc1280921d42883b22e89b96d88, type: 2}
+  - {fileID: 114820699724526508, guid: 5c00a97488f8d9c47b1f40a81fe6fb3b, type: 2}
+  - {fileID: 114651926383770738, guid: 77e13cc1280921d42883b22e89b96d88, type: 2}
+  - {fileID: 114510286356428570, guid: c6d67e8f907a9e84f8e172e839582c80, type: 2}
+  - {fileID: 114510286356428570, guid: c6d67e8f907a9e84f8e172e839582c80, type: 2}
+  - {fileID: 114820699724526508, guid: 5c00a97488f8d9c47b1f40a81fe6fb3b, type: 2}
 --- !u!4 &908674602
 Transform:
   m_ObjectHideFlags: 0
