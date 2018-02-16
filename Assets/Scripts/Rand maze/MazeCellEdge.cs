@@ -8,7 +8,7 @@ public abstract class MazeCellEdge : MonoBehaviour {
     public MazeDirection direction;
 
     //this code will set the location of the children quads to know where the wall will go.
-    public void Initialize(MazeCell cell, MazeCell otherCell, MazeDirection direction)
+    public virtual void Initialize(MazeCell cell, MazeCell otherCell, MazeDirection direction)
     {
         this.cell = cell;
         this.otherCell = otherCell;
