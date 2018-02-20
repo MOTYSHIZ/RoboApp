@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MazeWall : MazeCellEdge
 {
-
+    //adds color to the walls of the room
     public Transform wall;
 
     public override void Initialize(MazeCell cell, MazeCell otherCell, MazeDirection direction)

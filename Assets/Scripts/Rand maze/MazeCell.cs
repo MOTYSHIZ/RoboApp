@@ -10,7 +10,7 @@ public class MazeCell : MonoBehaviour {
 
     public MazeRoom room;
 
-
+    
     //Here we will creat a way get edge method so that we can boud them to our quad
     private MazeCellEdge[] edges = new MazeCellEdge[MazeDirections.Count];
 
