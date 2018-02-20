@@ -287,8 +287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size:
-    x: 20
-    z: 20
+    x: 10
+    z: 10
   cellPrefab: {fileID: 114096796974451536, guid: d4aa140ec95aed24fad36bbef696a4d1,
     type: 2}
   generationStepDelay: 0.01
@@ -358,6 +358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazePrefab: {fileID: 908674601}
+  playerPrefab: {fileID: 114992478590935028, guid: d65589c6a71a2974e99e13f6e5aa260a,
+    type: 2}
 --- !u!4 &1087224684
 Transform:
   m_ObjectHideFlags: 0

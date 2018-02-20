@@ -66,7 +66,24 @@ public class Maze : MonoBehaviour
         activeCells.Add(newCell);
     }
 
+    //used when creating rooms
+    private void CreatePassageInSameRoom (MazeCell cell, MazeCell otherCell, MazeDirection direction)
+    {
+        MazePassage passage = Instantiate(passagePrefab) as MazePassage;
+        passage.Initialize(cell, otherCell, direction);
+        passage = Instantiate(passagePrefab) as MazePassage;
+        passage.Initialize(otherCell, cell, direction.GetOpposite());
+        if (cell.room != otherCell.room )
+        {
+            MazeRoom roomToAssimilate = otherCell.room;
+            cell.room.Assimilate(roomToAssimilate);
+            rooms.Remove(roomToAssimilate);
+            Destroy(roomToAssimilate);
 
+
+        }
+
+    }
 
 
     private void DoNextGenerationStep(List<MazeCell> activeCells)
@@ -88,6 +105,12 @@ public class Maze : MonoBehaviour
                 neighbor = CreateCell(coordinates);
                 CreatePassage(currentCell, neighbor, direction);
                 activeCells.Add(neighbor);
+            }
+            //helps with creating full rooms 
+            else if (currentCell.room.settingsIndex == neighbor .room.settingsIndex)
+            {
+                CreatePassageInSameRoom(currentCell, neighbor, direction);
+
             }
             else
             {
