@@ -97,7 +97,7 @@ Transform:
   m_GameObject: {fileID: 1546563820242786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -484.07556, y: -462.90787, z: 362.552}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4152058265827338}
   - {fileID: 4058208858309386}
@@ -224,3 +224,4 @@ MonoBehaviour:
   cell: {fileID: 0}
   otherCell: {fileID: 0}
   direction: 0
+  wall: {fileID: 4152058265827338}

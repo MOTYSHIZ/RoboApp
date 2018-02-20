@@ -5,7 +5,12 @@ using UnityEngine;
 public class MazeCell : MonoBehaviour {
 
     public IntVector2 coordinates;
-  
+
+    private int initializedEdgeCount;
+
+    public MazeRoom room;
+
+
     //Here we will creat a way get edge method so that we can boud them to our quad
     private MazeCellEdge[] edges = new MazeCellEdge[MazeDirections.Count];
 
@@ -15,7 +20,6 @@ public class MazeCell : MonoBehaviour {
 
     }
     
-    private int initializedEdgeCount;
 
     public bool IsFullyInitialized
     {
@@ -50,4 +54,12 @@ public class MazeCell : MonoBehaviour {
             throw new System.InvalidOperationException("MazeCell has no uninitialized directions left.");
         }
     }
+
+    //when creating rooms this will be used with the help of MazeRoom
+    public void Initialize(MazeRoom room)
+    {
+        room.Add(this);
+        transform.GetChild(0).GetComponent<Renderer>().material = room.settings.floorMaterial;
+    }
+
 }

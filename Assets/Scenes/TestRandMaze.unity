@@ -307,6 +307,15 @@ MonoBehaviour:
   - {fileID: 114820699724526508, guid: 5c00a97488f8d9c47b1f40a81fe6fb3b, type: 2}
   doorPrefab: {fileID: 114786730646948494, guid: f3712a088c58e674b81fe687f3ce7b1b,
     type: 2}
+  roomSettings:
+  - floorMaterial: {fileID: 2100000, guid: 277b907cef5233147a42e36e5a354037, type: 2}
+    wallMaterial: {fileID: 2100000, guid: 3c0f82e786f709044bfa5324c8cbcbae, type: 2}
+  - floorMaterial: {fileID: 2100000, guid: c2158867c0374044185599776e284004, type: 2}
+    wallMaterial: {fileID: 2100000, guid: a12310973a6391a41b2b763c3269a73c, type: 2}
+  - floorMaterial: {fileID: 2100000, guid: 8c8553eb7097ede4999edc195cfffaed, type: 2}
+    wallMaterial: {fileID: 2100000, guid: 13bee9523f5ace040870c3f944ac14d0, type: 2}
+  - floorMaterial: {fileID: 2100000, guid: 6f536eab7aab84d4f8a4e5d3ace7db20, type: 2}
+    wallMaterial: {fileID: 2100000, guid: 4a5acad15aafd89449406025484da887, type: 2}
   doorProbability: 0.1
 --- !u!4 &908674602
 Transform:
