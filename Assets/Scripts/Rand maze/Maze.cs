@@ -56,6 +56,10 @@ public class Maze : MonoBehaviour
             yield return delay;
             DoNextGenerationStep(activeCells);
         }
+        for (int i = 0; i < rooms.Count; i++)
+        {
+            rooms[i].Hide();
+        }
     }
 
     //createing the floor

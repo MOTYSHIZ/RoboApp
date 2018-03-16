@@ -39,10 +39,12 @@ public class MazeDoor : MazePassage
     public override void OnPlayerEntered()
     {
         OtherSideOfDoor.hinge.localRotation = hinge.localRotation = Quaternion.Euler(0f, -90f, 0f);
+        OtherSideOfDoor.cell.room.show();
     }
 
     public override void OnPlayerExited()
     {
         OtherSideOfDoor.hinge.localRotation = hinge.localRotation = Quaternion.identity;
+        OtherSideOfDoor.cell.room.Hide();
     }
 }

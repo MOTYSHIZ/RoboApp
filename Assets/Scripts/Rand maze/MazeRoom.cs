@@ -25,5 +25,22 @@ public class MazeRoom : ScriptableObject
 
         }
     }
+    
+    //hide rooms 
+    public void Hide ()
+    {
+        for (int i = 0; i < cells.Count; i++)
+        {
+            cells[i].Hide();
+        }
+    }
+    //show room
+    public void show ()
+    {
+        for (int i= 0; i < cells.Count; i++ )
+        {
+            cells[i].Show();
+        }
+    }
 }
 
